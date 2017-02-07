@@ -12,6 +12,7 @@
         background: #dcdbd7;
         position: relative;
         box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 2px 3px rgba(0, 0, 0, 0.2);
+        margin: 10px 0;
     }
     
     .cont {
@@ -22,9 +23,11 @@
         background: -webkit-linear-gradient(#e0f6c8, #98ad84);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 1px 5px rgba(0, 0, 0, 0.3), 0 4px 5px rgba(0, 0, 0, 0.3);
     }
-    .per{
+    
+    .per {
         line-height: 26px;
-        padding-left: 10px;
+        padding-right: 10px;
+        float: right;
     }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -33,16 +36,33 @@
 <body>
     <div class="bar">
         <div class="cont">
+            <span class="per">80%</span>
+        </div>
+    </div>
+    <div class="bar">
+        <div class="cont">
+            <span class="per">20%</span>
+        </div>
+    </div>
+    <div class="bar">
+        <div class="cont">
+            <span class="per">50%</span>
+        </div>
+    </div>
+    <div class="bar">
+        <div class="cont">
             <span class="per">70%</span>
         </div>
     </div>
 </body>
 <script>
 $(document).ready(function() {
-    console.log($('.per').text())
-    $('.cont').animate({
-        width:$('.per').text()
-    }),10000
+    $('.bar').each(function() {
+        $(this).find('.cont').animate({
+            width: $(this).find('span').text()
+        }), 10000
+    })
+
 })
 </script>
 
